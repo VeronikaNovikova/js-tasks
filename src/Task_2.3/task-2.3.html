@@ -15,21 +15,18 @@
   <main class="grid">
     <section class="task">
       <p class="task__description">
-        Написать функцию, получающую на вход два числа. Если оба числа чётные - функция возвращает их произведение.
-        Если оба числа нечётные - функция возвращает их сумму. Если одно из чисел чётное, а второе нечётное - функция
-        возвращает это нечётное число.
+        Функция sequence(start, step) при вызове возвращает функцию-генератор. Каждый вызов генератора возвращает
+        новое число в числовой последовательности. start – стартовое число (по умолчанию 0). start – шаг приращения
+        (по умолчанию 1). Пример работы:
+        <pre>
+          <code>var generator = sequence(10, 3);</code>
+          <code>alert(generator()); // 10</code>
+          <code>alert(generator()); // 13</code>
+          <code>alert(generator()); // 16</code>
+        </pre>
       </p>
-      <div class="c-input">
-        <label class="c-input__label">Первое число</label>
-        <input class="c-input__field" type="number" id="fisrt_number" />
-      </div>
-      <div class="c-input">
-        <label class="c-input__label">Второе число</label>
-        <input class="c-input__field" type="number" id="second_number" />
-      </div>
-      <button class="btn btn--primary" onclick="getResult()">Получить результат</button>
     </section>
-    <a class="btn btn--secondary" href="./index.html">На главную</a>
+    <a class="btn btn--secondary" href="../../index.html">На главную</a>
   </main>
   <script src="task.js"></script>
 </body>

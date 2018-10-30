@@ -15,21 +15,21 @@
   <main class="grid">
     <section class="task">
       <p class="task__description">
-        Написать функцию, получающую на вход два числа. Если оба числа чётные - функция возвращает их произведение.
-        Если оба числа нечётные - функция возвращает их сумму. Если одно из чисел чётное, а второе нечётное - функция
-        возвращает это нечётное число.
+        Декоратор функции получает на вход существующую функцию и возвращает новую функцию, изменяющую
+        (дополняющую) поведение исходной.
+        <ol>
+          <li>
+            Создать декоратор для функции с одним параметром, дополняющий переданную функцию проверкой аргумента на
+            тип number.
+          </li>
+          <li>
+            Создать декоратор для функции с произвольным количеством параметров, дополняющий переданную функцию
+            проверкой всех аргумента на указанный тип.
+          </li>
+        </ol>
       </p>
-      <div class="c-input">
-        <label class="c-input__label">Первое число</label>
-        <input class="c-input__field" type="number" id="fisrt_number" />
-      </div>
-      <div class="c-input">
-        <label class="c-input__label">Второе число</label>
-        <input class="c-input__field" type="number" id="second_number" />
-      </div>
-      <button class="btn btn--primary" onclick="getResult()">Получить результат</button>
     </section>
-    <a class="btn btn--secondary" href="./index.html">На главную</a>
+    <a class="btn btn--secondary" href="../../index.html">На главную</a>
   </main>
   <script src="task.js"></script>
 </body>
