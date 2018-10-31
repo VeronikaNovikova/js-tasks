@@ -59,6 +59,14 @@ body
     font-size: 1em
     padding-bottom: 1em
 
+  &--task-done
+    position: relative
+    &::before
+      content: ""
+      display: block
+      position: absolute
+      border: 2px
+      transform: rotate(45deg)
 // placeholder cross-browser mixin
 =placeholder
   &::-webkit-input-placeholder
@@ -89,8 +97,13 @@ body
   line-height: 1.5
   text-align: left
   z-index: 1
+
   &:last-of-type
     margin-bottom: 1.4rem
+
+  &--inline
+    flex-direction: row
+    flex-wrap: wrap
 
   &__field
     position: relative
@@ -115,9 +128,14 @@ body
     &.error
       box-shadow: inset 0 -2px 0 0 adjust_hue($primaryDark, 140)
 
+    .c-input--inline &
+      width: 40%
+      margin-left: 1rem
+      margin-right: 1rem
+
   &__label
-    display: inline-block
-    width: auto
+    display: block
+    width: 100%
     padding: 0 1rem
     font-size: 0.9rem
     color: darken($input_text_color, 16%)

@@ -2,7 +2,7 @@ let firstNumber;
 let secondNumber;
 
 function isEven(number) {
-  return number % 2 === 0 ? true : false;
+  return number % 2 === 0;
 }
 function getResult() {
   firstNumber = parseInt(document.getElementById('fisrt_number').value);
