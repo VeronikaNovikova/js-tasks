@@ -1,6 +1,11 @@
-let x1, x2, x3, x4, y1, y2, y3, y4;
+(function() {
+  let x1, x2, x3, x4, y1, y2, y3, y4;
+  let point1, point2, point3, point4;
 
-function check() {
+  let button = document.querySelector('.js-button');
+  button.addEventListener('click', check);
+
+  function check() {
     x1 = document.getElementById('x1').value;
     x2 = document.getElementById('x2').value;
     x3 = document.getElementById('x3').value;
@@ -11,10 +16,10 @@ function check() {
     y3 = document.getElementById('y3').value;
     y4 = document.getElementById('y4').value;
 
-    let point1 = [x1, y1];
-    let point2 = [x2, y2];
-    let point3 = [x3, y3];
-    let point4 = [x4, y4];
+    point1 = [x1, y1];
+    point2 = [x2, y2];
+    point3 = [x3, y3];
+    point4 = [x4, y4];
 
     let coordinates = [point1, point2, point3, point4];
 
@@ -22,32 +27,34 @@ function check() {
 
     function isRectangular(points) {
 
-        let a1 = calcSideSize(points[0],points[1]);
-        let b1 = calcSideSize(points[1],points[2]);
+      let a1 = calcSideSize(points[0], points[1]);
+      let b1 = calcSideSize(points[1], points[2]);
 
-        let a2 = calcSideSize(points[2],points[3]);
-        let b2 = calcSideSize(points[3],points[0]);
+      let a2 = calcSideSize(points[2], points[3]);
+      let b2 = calcSideSize(points[3], points[0]);
 
-        let c = calcSideSize(points[2],points[0]);
+      let c = calcSideSize(points[2], points[0]);
 
-        if (
-            isRightTriangle(a1, b1, c)
-            && isRightTriangle(a2, b2, c)
-        ) {
-            return alert('Фигура - прямоугольник')
-        } else return alert('Не прямоугольник')
+      if (
+          isRightTriangle(a1, b1, c)
+          && isRightTriangle(a2, b2, c)
+      ) {
+        return alert('Фигура - прямоугольник')
+      } else return alert('Не прямоугольник')
     }
 
-    function calcSideSize(start,end) {
-        let x1 = start[0];
-        let y1 = start[1];
-        let x2 = end[0];
-        let y2 = end[1];
-        return (Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+    function calcSideSize(start, end) {
+      let x1 = start[0];
+      let y1 = start[1];
+      let x2 = end[0];
+      let y2 = end[1];
+      return (Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
     }
 
     function isRightTriangle(a, b, c) {
-        return a + b === c;
+      return a + b === c;
     }
 
-}
+  }
+
+})();

@@ -1,7 +1,12 @@
-*, *::before, *::after {
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+html {
   box-sizing: border-box; }
 
+*, *::before, *::after {
+  box-sizing: inherit; }
+
 body {
+  font-family: "Lato", sans-serif;
   background-color: #d9e5f2;
   color: #303030; }
 
@@ -37,7 +42,13 @@ body {
     content: "";
     display: block;
     position: absolute;
-    border: 2px;
+    right: 0;
+    top: 0;
+    margin: 16px;
+    width: 5px;
+    height: 10px;
+    border: solid #2a7960;
+    border-width: 0 2px 2px 0;
     transform: rotate(45deg); }
 
 .c-input {

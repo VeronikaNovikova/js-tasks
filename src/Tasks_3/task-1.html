@@ -20,19 +20,21 @@
         необязательный аргумент функции range() – шаг для построения массива. Убедитесь, что функция range()
         работает с отрицательным шагом: например, range(5, 2, -1) возвращает [5, 4, 3, 2].
       </p>
-      <div class="c-input">
-        <label class="c-input__label" for="start">Начало диапазона</label>
-        <input class="c-input__field" type="number" id="start" required />
-      </div>
-      <div class="c-input">
-        <label class="c-input__label" for="end">Конец диапазона</label>
-        <input class="c-input__field" type="number" id="end" required />
-      </div>
-      <div class="c-input">
-        <label class="c-input__label" for="step">Шаг</label>
-        <input class="c-input__field" type="number" id="step" />
-      </div>
-      <button class="btn btn--primary js-button">Получить результат</button>
+      <form class="form">
+        <div class="c-input">
+          <label class="c-input__label" for="start">Начало диапазона</label>
+          <input class="c-input__field" type="number" id="start" required />
+        </div>
+        <div class="c-input">
+          <label class="c-input__label" for="end">Конец диапазона</label>
+          <input class="c-input__field" type="number" id="end" required />
+        </div>
+        <div class="c-input">
+          <label class="c-input__label" for="step">Шаг</label>
+          <input class="c-input__field" type="number" id="step" />
+        </div>
+        <button class="btn btn--primary js-button">Получить результат</button>
+      </form>
     </section>
     <a class="btn btn--secondary" href="../../index.html">На главную</a>
   </main>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700')
+
 // color variables
 $primaryLight: hsl(212, 50%, 90%)
 $primary:      hsl(212, 48%, 64%)
@@ -16,16 +18,21 @@ $input_background_color: hsl(0, 0, 96%)
 $input_placeholder_color: hsl(0, 0%, 40%)
 $input_text_color: darken($text_color, 16%)
 
+$color_success: hsl(161, 48%, 32%)
+
 // media mixin
 $medium: 900px
 =md-up
   @media screen and (min-width: #{$medium})
     @content
 
-*, *::before, *::after
+html
   box-sizing: border-box
+*, *::before, *::after
+  box-sizing: inherit
 
 body
+  font-family: 'Lato', sans-serif
   background-color: $primaryLight
   color: $text_color
 
@@ -65,8 +72,15 @@ body
       content: ""
       display: block
       position: absolute
-      border: 2px
-      transform: rotate(45deg)
+      right: 0
+      top: 0
+      margin: 16px
+      width: 5px
+      height: 10px
+      border: solid $color_success
+      border-width: 0 2px 2px 0
+      transform: rotate(45deg) scale(1.5)
+
 // placeholder cross-browser mixin
 =placeholder
   &::-webkit-input-placeholder

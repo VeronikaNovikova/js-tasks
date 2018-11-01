@@ -1,20 +1,22 @@
-let firstNumber;
-let secondNumber;
+(function() {
+  let button = document.querySelector('.js-button');
+  button.addEventListener('click', call);
 
-function isEven(number) {
-  return number % 2 === 0 ? true : false;
-}
-function getResult() {
-  firstNumber = parseInt(document.getElementById('fisrt_number').value);
-  secondNumber = parseInt(document.getElementById('second_number').value);
-
-  if (isEven(firstNumber) && !isEven(secondNumber)) {
-    return alert('Одно нечётное число ' + secondNumber)
-  } else if (!isEven(firstNumber) && isEven(secondNumber))
-    return alert('Одно нечётное число ' + firstNumber);
-
-  if (isEven(firstNumber) && isEven(secondNumber)) {
-    return alert('Оба числа чётные, произведение = ' + (firstNumber * secondNumber));
+  function* sequence(start, step){
+    start = start || 0;
+    step = step || 1;
+    while(true){
+      yield start;
+      start+=step;
+    }
   }
-  return alert('Оба числа нечётные, сумма = ' + (firstNumber + secondNumber));
-}
+
+  function call() {
+    let generator = sequence(10,3);
+
+    alert(generator.next().value); // 10
+    alert(generator.next().value); // 13
+    alert(generator.next().value); // 16
+  }
+
+})();
