@@ -8,10 +8,6 @@
     "url": "https://github.com/VeronikaNovikova/js-tasks.git",
     "type": "git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
-  },
   "author": {
     "name": "vnovikova",
     "email": "veronikanovikova@coherentsolutions.com"
