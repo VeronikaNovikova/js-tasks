@@ -1,17 +1,13 @@
-(function() {
+(() => {
   function sum(a) {
-    debugger;
-
     let currentSum = a;
 
     function f(b) {
-      debugger;
       currentSum += b;
       return f;
     }
 
     f.toString = function () {
-      debugger;
       return currentSum;
     };
 

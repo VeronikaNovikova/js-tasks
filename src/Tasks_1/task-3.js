@@ -1,9 +1,7 @@
-(function() {
+(() => {
   let button = document.querySelector('.js-button');
 
-  button.addEventListener('click', callPrompt);
-
-  function fib(n) {
+  let fib = (n) => {
     let a = 1,
         b = 1;
     for (let i = 3; i <= n; i++) {
@@ -12,10 +10,12 @@
       b = c;
     }
     return b;
-  }
+  };
 
-  function callPrompt() {
+  let callPrompt = () => {
     let n = prompt("Введите число");
-    alert( "Число Фибоначчи: " + fib(n) );
-  }
+    alert("Число Фибоначчи: " + fib(n));
+  };
+
+  button.addEventListener('click', callPrompt);
 })();

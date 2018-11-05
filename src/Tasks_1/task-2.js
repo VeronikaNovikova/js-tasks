@@ -1,4 +1,4 @@
-(function() {
+(() => {
   const MAX_FLOOR_COUNT = 25;
   const MAX_ENTRANCE_COUNT = 10;
   const MAX_APARTMENTS_ON_FLOOR_COUNT = 20;
@@ -7,9 +7,7 @@
       entrance_field = document.getElementById('entrance'),
       floor_field = document.getElementById('floor');
 
-  button.addEventListener('click', checkRoom);
-
-  function validateField(field, max) {
+  let validateField = (field, max) => {
     let parent = field.parentNode,
         parentClasses = parent.classList;
 
@@ -26,10 +24,10 @@
       }
       return true;
     }
-  }
+  };
 
-  function checkRoom(event) {
-    event.preventDefault();
+  let checkRoom = (e) => {
+    e.preventDefault();
 
     let maxFloorField = document.getElementById('max_floor'),
         maxEntranceField = document.getElementById('max_entrance'),
@@ -50,17 +48,19 @@
     maxApartments = maxFloorField.value * maxEntranceField.value * maxApartmentsOnFloorField.value;
 
     if (room > maxApartments) {
-        let validation_msg = roomField.parentNode.querySelector('.msg-validation');
-        validation_msg.innerText = 'Максимальное число квартир в доме: ' + maxApartments;
-        entrance_field.innerText = '';
-        floor_field.innerText = '';
-        return;
+      let validation_msg = roomField.parentNode.querySelector('.msg-validation');
+      validation_msg.innerText = 'Максимальное число квартир в доме: ' + maxApartments;
+      entrance_field.innerText = '';
+      floor_field.innerText = '';
+      return;
     }
 
-    entrance = Math.ceil(room / ( maxFloorField.value * maxApartmentsOnFloorField.value));
+    entrance = Math.ceil(room / (maxFloorField.value * maxApartmentsOnFloorField.value));
     floor = Math.ceil((room / maxApartmentsOnFloorField.value) % maxEntranceField.value);
 
     entrance_field.innerText = entrance.toString();
     floor_field.innerText = floor.toString();
-  }
+  };
+
+  button.addEventListener('click', checkRoom);
 })();

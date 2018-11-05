@@ -1,15 +1,14 @@
-(function() {
+(() => {
   let firstNumber,
       secondNumber;
 
   let button = document.querySelector('.js-button');
-  button.addEventListener('click', getResult);
 
-  function isEven(number) {
+  let isEven = (number) => {
     return number % 2 === 0;
-  }
+  };
 
-  function getResult() {
+  let getResult = () => {
     firstNumber = parseInt(document.getElementById('first_number').value);
     secondNumber = parseInt(document.getElementById('second_number').value);
 
@@ -22,5 +21,7 @@
       return alert('Оба числа чётные, произведение = ' + (firstNumber * secondNumber));
     }
     return alert('Оба числа нечётные, сумма = ' + (firstNumber + secondNumber));
-  }
+  };
+
+  button.addEventListener('click', getResult);
 })();

@@ -1,11 +1,10 @@
-(function() {
+(() => {
   let x1, x2, x3, x4, y1, y2, y3, y4;
   let point1, point2, point3, point4;
 
-  let button = document.querySelector('.js-button');
-  button.addEventListener('click', check);
+  let check = (e) => {
+    e.preventDefault();
 
-  function check() {
     x1 = document.getElementById('x1').value;
     x2 = document.getElementById('x2').value;
     x3 = document.getElementById('x3').value;
@@ -23,10 +22,7 @@
 
     let coordinates = [point1, point2, point3, point4];
 
-    isRectangular(coordinates);
-
-    function isRectangular(points) {
-
+    let isRectangular = (points) => {
       let a1 = calcSideSize(points[0], points[1]);
       let b1 = calcSideSize(points[1], points[2]);
 
@@ -41,20 +37,23 @@
       ) {
         return alert('Фигура - прямоугольник')
       } else return alert('Не прямоугольник')
-    }
+    };
 
-    function calcSideSize(start, end) {
+    let calcSideSize = (start, end) => {
       let x1 = start[0];
       let y1 = start[1];
       let x2 = end[0];
       let y2 = end[1];
       return (Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
-    }
+    };
 
-    function isRightTriangle(a, b, c) {
+    let isRightTriangle = (a, b, c) => {
       return a + b === c;
-    }
+    };
 
-  }
+    isRectangular(coordinates);
+  };
 
+  let button = document.querySelector('.js-button');
+  button.addEventListener('click', check);
 })();

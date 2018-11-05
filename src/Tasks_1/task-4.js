@@ -1,17 +1,14 @@
 // Получить номер дня в неделе. Неделя в JavaScript начинается с воскресенья, так что результат будет числом от 0(воскресенье) до 6(суббота).
-(function() {
-  let button = document.querySelector('.js-button');
-
+(() => {
   const YEAR = 2018;
-  let month, day;
+  let button = document.querySelector('.js-button'),
+      month, day;
 
-  button.addEventListener('click', getDayName);
-
-  function getDayName() {
+  let getDayName = () => {
     month = prompt('Введите номер месяца (1-12)');
     day = prompt('Введите число в этом месяце (1-31)');
 
-    if ( (month || day) === null ) {
+    if ((month || day) === null) {
       return
     }
 
@@ -42,6 +39,7 @@
       default:
         alert('Неверная дата');
     }
-  }
+  };
 
+  button.addEventListener('click', getDayName);
 })();

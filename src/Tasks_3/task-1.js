@@ -1,13 +1,23 @@
-(function () {
-  let button = document.querySelector('.js-button');
+(() => {
+  let start,
+      end,
+      step;
 
-  let start;
-  let end;
-  let step;
+  let setRange = (e) => {
+    e.preventDefault();
 
-  button.addEventListener('click', setRange);
+    start = document.getElementById('start').value;
+    end = document.getElementById('end').value;
+    step = document.getElementById('step').value;
 
-  function calcRange(start, end, step = 1) {
+    if (step !== "") {
+      calcRange(parseInt(start), parseInt(end), parseInt(step));
+      return;
+    }
+    calcRange(parseInt(start), parseInt(end));
+  };
+
+  let calcRange = (start, end, step = 1) => {
     let arr = [];
 
     if (step < 0 && start < end) {
@@ -21,20 +31,8 @@
     }
 
     alert('Массив: [' + arr + ']');
-  }
+  };
 
-  function setRange(event) {
-    event.preventDefault();
-
-    start = document.getElementById('start').value;
-    end = document.getElementById('end').value;
-    step = document.getElementById('step').value;
-
-    if (step !== "") {
-      calcRange(parseInt(start), parseInt(end), parseInt(step));
-      return;
-    }
-    calcRange(parseInt(start), parseInt(end));
-  }
-
+  let button = document.querySelector('.js-button');
+  button.addEventListener('click', setRange);
 })();

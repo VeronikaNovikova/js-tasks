@@ -1,4 +1,4 @@
-(function() {
+(() => {
   function union(...arrays) {
     let a = [],
         obj = {};
