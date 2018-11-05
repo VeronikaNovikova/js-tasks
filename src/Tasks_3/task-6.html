@@ -14,10 +14,13 @@
 <body>
   <main class="grid">
     <section class="task">
-      <p class="task__description">
-        В ECMAScript 5 у функций появился метод bind(). Напишите собственную реализацию данного метода.
-      </p>
-      <button class="btn btn--primary js-bind">Клик</button>
+      <div class="task__description">
+        Функция принимает на вход массив или объект, подобный массиву. Функция возвращает массив, полученный из аргумента удалением триплов. Триплом будем считать элемент, которые повторяется 3 и более раз.
+        Пример:
+        <pre><code>var a = f([1, 2, 1, 3, 1, 3, 1, 4]); // a = [2, 3, 3, 4]</code></pre>
+        <pre><code>var b = f("mama ramu"); // b = [" ", "r", "u"];</code></pre>
+      </div>
+      <button class="btn btn--primary js-button">Клик</button>
     </section>
     <a class="btn btn--secondary" href="../../index.html">На главную</a>
   </main>
