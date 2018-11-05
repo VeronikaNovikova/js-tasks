@@ -1,0 +1,71 @@
+@import "colors"
+
+// sass-placeholder for input indents
+%input-indent
+  margin: 0.5rem auto 1rem
+  +md-up
+    margin: 0.5rem auto 0.8rem
+
+.c-input
+  @extend %input-indent
+
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  max-width: 400px
+  width: 100%
+  padding-bottom: 2px
+  position: relative
+  line-height: 1.5
+  text-align: left
+  z-index: 1
+
+  &:last-of-type
+    margin-bottom: 1.4rem
+
+  &--inline
+    flex-direction: row
+    flex-wrap: wrap
+
+  &__field
+    position: relative
+    display: block
+    padding: 0.75rem 1rem
+    width: 100%
+    background-color: $input_background_color
+    border: none
+    border-radius: $input_border_radius
+    color: $input_text_color
+    font-size: 1rem
+    line-height: inherit
+    appearance: none
+    resize: none
+    transition: box-shadow .2s cubic-bezier(0.4, 0, 1, 1), background-color .2s
+    z-index: 3
+    &:hover
+      box-shadow: 0 2px 4px 0 rgba($primary, .56), inset 0 -1px 0 0 $primary
+    &:focus
+      box-shadow: 0 2px 8px 0 rgba($primaryDark, .56), inset 0 -2px 0 0 $primary
+      outline: none
+    &.error
+      box-shadow: inset 0 -2px 0 0 adjust_hue($primaryDark, 140)
+
+    .c-input--inline &
+      width: 40%
+      margin-left: 1rem
+      margin-right: 1rem
+
+  &__label
+    display: block
+    width: 100%
+    padding: 0 1rem
+    font-size: 0.9rem
+    color: darken($input_text_color, 16%)
+    font-weight: 400
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    -webkit-touch-callout: none
+    user-select: none
+    cursor: text
+    transform: translateX(0)
+    transition: transform 0.24s cubic-bezier(0, 0.25, 0.5, 1), color 0.25s ease-out

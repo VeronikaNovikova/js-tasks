@@ -1,25 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700&subset=cyrillic,cyrillic-ext')
 
-// color variables
-$primaryLight: hsl(212, 50%, 90%)
-$primary:      hsl(212, 48%, 64%)
-$primaryDark:  hsl(212, 48%, 32%)
-
-$secondaryLight:  hsl(338, 54%, 54%)
-$secondary:       hsl(338, 54%, 42%)
-$secondaryDark:   hsl(338, 54%, 30%)
-
-$text_color: hsl(0, 0%, 19%)
-$primary-colors: (base: $primary, light: $primaryLight, dark: $primaryDark)
-$secondary-colors: (base: $secondary, light: $secondaryLight, dark: $secondaryDark)
-
-$input_border_radius: 3px
-$input_background_color: hsl(0, 0, 96%)
-$input_placeholder_color: hsl(0, 0%, 40%)
-$input_text_color: darken($text_color, 16%)
-
-$color_success: hsl(161, 48%, 32%)
-
 // media mixin
 $medium: 900px
 =md-up
@@ -34,135 +14,11 @@ html
 body
   padding: 40px 3%
   font-family: 'Comfortaa', sans-serif
-  background-color: $primaryLight
-  color: $text_color
 
-.grid
-  max-width: 1200px
-  margin: 0 auto
-  padding: 0 15px
-  .grid__row
-    display: grid
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
-    grid-gap: 24px
-
-.card
-
-  &__link
-    display: flex
-    flex-direction: column
-    height: 100%
-    padding: 0 1em
-    background: #fff
-    border-radius: 3px
-    text-decoration: none
-    transition: box-shadow 0.18s
-    box-shadow: 0 2px 8px rgba(#000, 0.2)
-    &:hover
-      box-shadow: 0 2px 16px rgba(#000, 0.2)
-
-  &__title
-    color: #000
-  &__desc
-    color: #3a3a3a
-    font-size: 1em
-    padding-bottom: 1em
-
-  &--task-done
-    position: relative
-    &::before
-      content: ""
-      display: block
-      position: absolute
-      right: 0
-      top: 0
-      margin: 16px
-      width: 5px
-      height: 10px
-      border: solid $color_success
-      border-width: 0 2px 2px 0
-      transform: rotate(45deg) scale(1.5)
-
-// placeholder cross-browser mixin
-=placeholder
-  &::-webkit-input-placeholder
-    @content
-  &::-moz-placeholder
-    @content
-  &:-moz-placeholder
-    @content
-  &:-ms-input-placeholder
-    @content
-
-// sass-placeholder for input indents
-%input-indent
-  margin: 0.5rem auto 1rem
-  +md-up
-    margin: 0.5rem auto 0.8rem
-
-.c-input
-  @extend %input-indent
-
+section
   display: flex
   flex-direction: column
-  align-items: flex-start
-  max-width: 400px
-  width: 100%
-  padding-bottom: 2px
-  position: relative
-  line-height: 1.5
-  text-align: left
-  z-index: 1
-
-  &:last-of-type
-    margin-bottom: 1.4rem
-
-  &--inline
-    flex-direction: row
-    flex-wrap: wrap
-
-  &__field
-    position: relative
-    display: block
-    padding: 0.75rem 1rem
-    width: 100%
-    background-color: $input_background_color
-    border: none
-    border-radius: $input_border_radius
-    color: $input_text_color
-    font-size: 1rem
-    line-height: inherit
-    appearance: none
-    resize: none
-    transition: box-shadow .2s cubic-bezier(0.4, 0, 1, 1), background-color .2s
-    z-index: 3
-    &:hover
-      box-shadow: 0 2px 4px 0 rgba($primary, .56), inset 0 -1px 0 0 $primary
-    &:focus
-      box-shadow: 0 2px 8px 0 rgba($primaryDark, .56), inset 0 -2px 0 0 $primary
-      outline: none
-    &.error
-      box-shadow: inset 0 -2px 0 0 adjust_hue($primaryDark, 140)
-
-    .c-input--inline &
-      width: 40%
-      margin-left: 1rem
-      margin-right: 1rem
-
-  &__label
-    display: block
-    width: 100%
-    padding: 0 1rem
-    font-size: 0.9rem
-    color: darken($input_text_color, 16%)
-    font-weight: 400
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
-    -webkit-touch-callout: none
-    user-select: none
-    cursor: text
-    transform: translateX(0)
-    transition: transform 0.24s cubic-bezier(0, 0.25, 0.5, 1), color 0.25s ease-out
+  margin-bottom: 20px
 
 .msg-validation
   padding: 0.25rem 1rem 0.5rem
@@ -170,47 +26,12 @@ body
   font-size: 0.85rem
   font-weight: bold
 
-.btn
-  display: block
-  padding: 12px 24px
-  margin: 0 auto 20px
-  max-width: 400px
-  border: none
-  border-radius: $input_border_radius
-  font:
-    family: 'Avenir Next LT Pro', "Open Sans", sans-serif
-    size: 14px
-    weight: 600
-  letter-spacing: 0.04em
-  text-transform: uppercase
-  text-decoration: none
-  text-align: center
-  opacity: 0.9
-  outline: none
-  cursor: pointer
-  transition-property: background-color, box-shadow, color
-  transition-duration: 0.18s
-  will-change: background-color, box-shadow, color
-  &:disabled
-    cursor: not-allowed
-
-
-$components: (primary, secondary)
-$component-colors: (primary: $primary-colors, secondary: $secondary-colors)
-
-@each $status, $color in $component-colors
-  .btn--#{$status}
-    background-color: map_get($color, 'dark')
-    color: white
-    &:hover
-      box-shadow: 0 2px 16px 0 rgba(map_get($color, 'dark'), .48)
-    &:focus
-      background-color: map_get($color, 'base')
-      box-shadow: 0 1px 8px 0 rgba(map_get($color, 'dark'), .6)
-    &:active
-      box-shadow: 0 0 0 0 transparent
-
 .form
   padding: 40px 32px
   margin: 48px auto
   text-align: center
+
+@import "grid"
+@import "btn"
+@import "card"
+@import "input"

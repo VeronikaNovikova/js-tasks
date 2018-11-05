@@ -7,9 +7,23 @@ html {
 
 body {
   padding: 40px 3%;
-  font-family: "Comfortaa", sans-serif;
-  background-color: #d9e5f2;
-  color: #303030; }
+  font-family: "Comfortaa", sans-serif; }
+
+section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; }
+
+.msg-validation {
+  padding: 0.25rem 1rem 0.5rem;
+  color: #792a35;
+  font-size: 0.85rem;
+  font-weight: bold; }
+
+.form {
+  padding: 40px 32px;
+  margin: 48px auto;
+  text-align: center; }
 
 .grid {
   max-width: 1200px;
@@ -17,8 +31,61 @@ body {
   padding: 0 15px; }
   .grid .grid__row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 24px; }
+
+body {
+  background-color: #d9e5f2;
+  color: #303030; }
+
+.btn {
+  display: block;
+  padding: 12px 24px;
+  margin: 0 auto 20px;
+  max-width: 400px;
+  border: none;
+  border-radius: 3px;
+  font-family: "Avenir Next LT Pro", "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  opacity: 0.9;
+  outline: none;
+  cursor: pointer;
+  transition-property: background-color, box-shadow, color;
+  transition-duration: 0.18s;
+  will-change: background-color, box-shadow, color; }
+  .btn:disabled {
+    cursor: not-allowed; }
+
+.btn--primary {
+  background-color: #2a4f79;
+  color: white; }
+  .btn--primary:hover {
+    box-shadow: 0 2px 16px 0 rgba(42, 79, 121, 0.48); }
+  .btn--primary:focus {
+    background-color: #77a0cf;
+    box-shadow: 0 1px 8px 0 rgba(42, 79, 121, 0.6); }
+  .btn--primary:active {
+    box-shadow: 0 0 0 0 transparent; }
+
+.btn--secondary {
+  background-color: #762341;
+  color: white; }
+  .btn--secondary:hover {
+    box-shadow: 0 2px 16px 0 rgba(118, 35, 65, 0.48); }
+  .btn--secondary:focus {
+    background-color: #a5315c;
+    box-shadow: 0 1px 8px 0 rgba(118, 35, 65, 0.6); }
+  .btn--secondary:active {
+    box-shadow: 0 0 0 0 transparent; }
+
+body {
+  background-color: #d9e5f2;
+  color: #303030; }
 
 .card__link {
   display: flex;
@@ -52,6 +119,10 @@ body {
     border: solid #2a7960;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg) scale(1.5); }
+
+body {
+  background-color: #d9e5f2;
+  color: #303030; }
 
 .c-input {
   margin: 0.5rem auto 1rem; }
@@ -115,61 +186,5 @@ body {
     cursor: text;
     transform: translateX(0);
     transition: transform 0.24s cubic-bezier(0, 0.25, 0.5, 1), color 0.25s ease-out; }
-
-.msg-validation {
-  padding: 0.25rem 1rem 0.5rem;
-  color: #792a35;
-  font-size: 0.85rem;
-  font-weight: bold; }
-
-.btn {
-  display: block;
-  padding: 12px 24px;
-  margin: 0 auto 20px;
-  max-width: 400px;
-  border: none;
-  border-radius: 3px;
-  font-family: "Avenir Next LT Pro", "Open Sans", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  opacity: 0.9;
-  outline: none;
-  cursor: pointer;
-  transition-property: background-color, box-shadow, color;
-  transition-duration: 0.18s;
-  will-change: background-color, box-shadow, color; }
-  .btn:disabled {
-    cursor: not-allowed; }
-
-.btn--primary {
-  background-color: #2a4f79;
-  color: white; }
-  .btn--primary:hover {
-    box-shadow: 0 2px 16px 0 rgba(42, 79, 121, 0.48); }
-  .btn--primary:focus {
-    background-color: #77a0cf;
-    box-shadow: 0 1px 8px 0 rgba(42, 79, 121, 0.6); }
-  .btn--primary:active {
-    box-shadow: 0 0 0 0 transparent; }
-
-.btn--secondary {
-  background-color: #762341;
-  color: white; }
-  .btn--secondary:hover {
-    box-shadow: 0 2px 16px 0 rgba(118, 35, 65, 0.48); }
-  .btn--secondary:focus {
-    background-color: #a5315c;
-    box-shadow: 0 1px 8px 0 rgba(118, 35, 65, 0.6); }
-  .btn--secondary:active {
-    box-shadow: 0 0 0 0 transparent; }
-
-.form {
-  padding: 40px 32px;
-  margin: 48px auto;
-  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */

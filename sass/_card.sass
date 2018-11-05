@@ -1,0 +1,37 @@
+@import "colors"
+
+.card
+  &__link
+    display: flex
+    flex-direction: column
+    height: 100%
+    padding: 0 1em
+    background: #fff
+    border-radius: 3px
+    text-decoration: none
+    transition: box-shadow 0.18s
+    box-shadow: 0 2px 8px rgba(#000, 0.2)
+    &:hover
+      box-shadow: 0 2px 16px rgba(#000, 0.2)
+
+  &__title
+    color: #000
+  &__desc
+    color: #3a3a3a
+    font-size: 1em
+    padding-bottom: 1em
+
+  &--task-done
+    position: relative
+    &::before
+      content: ""
+      display: block
+      position: absolute
+      right: 0
+      top: 0
+      margin: 16px
+      width: 5px
+      height: 10px
+      border: solid $color_success
+      border-width: 0 2px 2px 0
+      transform: rotate(45deg) scale(1.5)

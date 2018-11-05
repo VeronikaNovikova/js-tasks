@@ -1,0 +1,40 @@
+@import "colors"
+
+.btn
+  display: block
+  padding: 12px 24px
+  margin: 0 auto 20px
+  max-width: 400px
+  border: none
+  border-radius: $input_border_radius
+  font:
+    family: 'Avenir Next LT Pro', "Open Sans", sans-serif
+    size: 14px
+    weight: 600
+  letter-spacing: 0.04em
+  text-transform: uppercase
+  text-decoration: none
+  text-align: center
+  opacity: 0.9
+  outline: none
+  cursor: pointer
+  transition-property: background-color, box-shadow, color
+  transition-duration: 0.18s
+  will-change: background-color, box-shadow, color
+  &:disabled
+    cursor: not-allowed
+
+$components: (primary, secondary)
+$component-colors: (primary: $primary-colors, secondary: $secondary-colors)
+
+@each $status, $color in $component-colors
+  .btn--#{$status}
+    background-color: map_get($color, 'dark')
+    color: white
+    &:hover
+      box-shadow: 0 2px 16px 0 rgba(map_get($color, 'dark'), .48)
+    &:focus
+      background-color: map_get($color, 'base')
+      box-shadow: 0 1px 8px 0 rgba(map_get($color, 'dark'), .6)
+    &:active
+      box-shadow: 0 0 0 0 transparent
