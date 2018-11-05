@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700&subset=cyrillic,cyrillic-ext");
 html {
   box-sizing: border-box; }
 
@@ -7,7 +7,7 @@ html {
 
 body {
   padding: 40px 3%;
-  font-family: "Lato", sans-serif;
+  font-family: "Comfortaa", sans-serif;
   background-color: #d9e5f2;
   color: #303030; }
 
