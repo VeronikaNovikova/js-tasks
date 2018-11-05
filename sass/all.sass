@@ -32,6 +32,7 @@ html
   box-sizing: inherit
 
 body
+  padding: 40px 3%
   font-family: 'Lato', sans-serif
   background-color: $primaryLight
   color: $text_color
@@ -43,7 +44,7 @@ body
   .grid__row
     display: grid
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
-    grid-gap: 32px
+    grid-gap: 24px
 
 .card
 
@@ -54,11 +55,12 @@ body
     padding: 0 1em
     background: #fff
     border-radius: 3px
+    text-decoration: none
+    transition: box-shadow 0.18s
     box-shadow: 0 2px 8px rgba(#000, 0.2)
     &:hover
       box-shadow: 0 2px 16px rgba(#000, 0.2)
 
-    text-decoration: none
   &__title
     color: #000
   &__desc
