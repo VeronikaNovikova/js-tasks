@@ -15,16 +15,40 @@
   <main class="grid">
     <section class="task">
       <p class="task__description">
-        Функция sequence(start, step) при вызове возвращает функцию-генератор. Каждый вызов генератора возвращает
-        новое число в числовой последовательности. start – стартовое число (по умолчанию 0). start – шаг приращения
-        (по умолчанию 1). Пример работы:
-        <pre>
-          <code>var generator = sequence(10, 3);</code>
-          <code>alert(generator()); // 10</code>
-          <code>alert(generator()); // 13</code>
-          <code>alert(generator()); // 16</code>
-        </pre>
+        Создать функцию createMatrix(), принимающую количество строк и количество столбцов матрицы и возвращающее матрицу (массив массивов), заполненную случайными числами в диапазоне от 0 до 100. Написать функцию, выполняющую суммирование двух таких «матриц»
       </p>
+      <form class="form" autocomplete="off">
+        <h4>Размер матриц</h4>
+        <div class="c-input">
+          <label class="c-input__label" for="rows">Количество строк</label>
+          <input class="c-input__field" placeholder="" id="rows">
+        </div>
+        <div class="c-input">
+          <label class="c-input__label" for="cols">Количество столбцов</label>
+          <input class="c-input__field" placeholder="" id="cols">
+        </div>
+        <button class="btn btn--primary js-button">Сложить</button>
+        <div class="result"
+             style="
+                display: flex; flex-wrap: wrap; justify-content: center;
+                background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                visibility: hidden
+             ">
+          <div style="margin: 0 20px 20px; text-align: left;">
+            <h6>Первая матрица:</h6>
+            <span id="matrix1"></span>
+          </div>
+          <div style="margin: 0 20px 20px; text-align: left;">
+            <h6>Вторая матрица:</h6>
+            <span id="matrix2"></span>
+          </div>
+          <div style="margin: 0 20px 20px; text-align: left;">
+            <h6>Сумма:</h6>
+            <span id="matrixSum"></span>
+          </div>
+        </div>
+      </form>
+
     </section>
     <a class="btn btn--secondary" href="../../index.html">На главную</a>
   </main>
