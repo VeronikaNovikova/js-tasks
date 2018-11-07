@@ -40,6 +40,7 @@
   alert(a)
   alert(a + 5)
   console.log(3*a)
+  console.log("Privet " + a)
   // a + b = {ax + bx; ay + by; az + bz} = {3 + 2; 5 + 3; 1 + 2} = {5; 8; 3}
   // a · b = ax · bx + ay · by + az · bz = 3 · 2 + 5 · 3 + 1 · 2 = 6 + 15 + 2 = 23
 })();
