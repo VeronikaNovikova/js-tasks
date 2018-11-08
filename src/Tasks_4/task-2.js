@@ -1,38 +1,31 @@
-// Задача имеет название, описание, дату начала и дату окончания.
-// Любая задача может иметь набор дочерних подзадач.
-// Создайте класс для представления задачи.
-// Выполняемая задача – наследник задачи с дополнительными свойствами:
-//    - процент выполнения (число);
-//    - флаг задача завершена.
-// Реализуйте данное наследование.
-
 (() => {
   class Task {
     constructor(name, description, dateStart, dateEnd) {
       this.name = name;
       this.desc = description;
-      this.start = dateStart.toDateString() || "Не задано";
-      this.end = dateEnd.toDateString() || "Не задано";
+      this.start = dateStart ? dateStart.toDateString() : "не задано";
+      this.end = dateEnd ? dateEnd.toDateString() : "не задано";
     }
-    taskDescr() {
-      return `Ваша задача - ${this.name}, описание задачи:\n${this.desc}.\nНачало: ${this.start}, окончание: ${this.end}\n`
+    taskDesc() {
+      return `Ваша задача - ${this.name}\nОписание задачи:\n${this.desc}.\nНачало: ${this.start}, окончание: ${this.end}\n`
     }
   }
   
   class ExecutableTask extends Task {
-    constructor(name, desc, start, end, donePercent, isDone){
+    constructor(name, desc, start, end, donePercent){
       super(name, desc, start, end);
       this.donePercent = donePercent;
-      this.isDoneFlag = isDone;
+      this.isDoneFlag = donePercent === 100;
     }
-    taskDescr() {
-      const isDone = this.isDoneFlag ? 'Задача завершена' : 'Задача в процессе'
-      return super.taskDescr() + `Процент выполнения: ${this.donePercent}%\n${isDone}`
+    taskDesc() {
+      const isDone = this.isDoneFlag ? 'Задача завершена' : 'Задача в процессе';
+      return super.taskDesc() + `Процент выполнения: ${this.donePercent}%\n${isDone}`;
     }
   }
 
-  let Prime = new ExecutableTask("Выпускной", "Заказать напитки и шары", null, null, 87, false);
-  let Hallowen = new ExecutableTask("Хэллоуин пати", "Очень страшная вечеринка", new Date(2018, 9, 31), new Date(2018, 10, 01), 87, false);
+  let Prime = new ExecutableTask("Выпускной", "Окунитесь в атмосферу праздника", null, null, 87);
+  let Halloween = new ExecutableTask("Хэллоуин пати", "Очень страшная вечеринка", new Date(2018, 9, 31), new Date(2018, 10, 1), 100);
 
-  alert(Hallowen.taskDescr())
+  alert(Prime.taskDesc());
+  alert(Halloween.taskDesc());
 })();
