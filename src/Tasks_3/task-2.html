@@ -14,16 +14,89 @@
 <body>
   <main class="grid">
     <section class="task">
-      <p class="task__description">
-        На декартовой плоскости прямоугольник задаётся четырьмя точками – своими вершинами (у каждой точки две
-        числовые координаты). Вершины перечисляются последовательно, в порядке обхода по часовой стрелке, начиная с
-        произвольной вершины.
-        <ol>
-          <li>Написать функцию, проверяющую, образуют ли заданные восемь чисел вершины некоего прямоугольника.</li>
-          <li>Написать функцию, проверяющую принадлежность указанной точки заданному прямоугольнику.</li>
-        </ol>
-      </p>
+      <div class="task__description">
+        <pre class="highlight">
+          // Underscore
+          _.sortBy(fruits, 'name');
+          // => [{name:"apple", amount: 4}, {name:"banana", amount: 2}, {name:"mango", amount: 1}, {name:"pineapple", amount: 2}]
 
+          // Lodash
+          _.orderBy(fruits, ['name'],['asc']);
+          // => [{name:"apple", amount: 4}, {name:"banana", amount: 2}, {name:"mango", amount: 1}, {name:"pineapple", amount: 2}]
+
+          // Native
+          const sortBy = (key) => {
+            return (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0);
+          };
+
+          fruits.sort(sortBy("name"));
+          // => [{name:"apple", amount: 4}, {name:"banana", amount: 2}, {name:"mango", amount: 1}, {name:"pineapple", amount: 2}]
+        </pre>
+      </div>
+      <div class="task__description">
+        <h3>Underscore</h3>
+        <div id="sortBy">
+          <h4 class="header">sortBy</h4>
+          <pre class="highlight"><code>_.sortBy(list, iteratee, [context])</code></pre>
+          <p>Возвращает копию списка, отсортированную по возрастанию значений, которые
+            возвращает функция <b>iteratee</b>, вызываемая на каждом элементе списка.
+            Параметр <b>iteratee</b> может также быть названием поля, по которому
+            должна вестить сортировка (например <code>length</code>).</p>
+        </div>
+        <pre class="highlight">
+          _.sortBy([1, 2, 3, 4, 5, 6], function(num){ return Math.sin(num); });
+          =&gt; [5, 4, 6, 3, 1, 2]
+
+          var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+          _.sortBy(stooges, 'name');
+          =&gt; [{name: 'curly', age: 60}, {name: 'larry', age: 50}, {name: 'moe', age: 40}];
+        </pre>
+      </div>
+      <div class="task__description">
+        <h3>Lo-Dash</h3>
+        <div id="_sortBy">
+          <h4 class="header">sortBy</h4>
+          <pre class="highlight"><code>_.sortBy(collection, [iteratees=[_.identity]])</code></pre>
+          <p>Creates an array of elements, sorted in ascending order by the results of running each element in a collection thru each iteratee.
+            This method performs a stable sort, that is, it preserves the original sort order of equal elements.
+            The iteratees are invoked with one argument: <em>(value)</em>.</p>
+        </div>
+        <h4>Arguments</h4>
+        <ol>
+          <li>collection (Array|Object): The collection to iterate over.</li>
+          <li>[iteratees=[_.identity]] (...(Function|Function[])): The iteratees to sort by.</li>
+        </ol>
+        <pre class="highlight">
+          var users = [
+            { 'user': 'fred',   'age': 48 },
+            { 'user': 'barney', 'age': 36 },
+            { 'user': 'fred',   'age': 40 },
+            { 'user': 'barney', 'age': 34 }
+          ];
+
+          _.sortBy(users, [function(o) { return o.user; }]);
+          // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+
+          _.sortBy(users, ['user', 'age']);
+          // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
+        </pre>
+      </div>
+      <pre class="highlight">
+        `_.sortBy` with `callback`:
+        lodash.min x 154,049 ops/sec ±1.59% (86 runs sampled)
+        underscore-min x 104,836 ops/sec ±7.55% (69 runs sampled)
+        lodash.min is 56% faster.
+
+        `_.sortBy` with `callback` and `thisArg` (slow path):
+        lodash.min x 125,884 ops/sec ±1.77% (81 runs sampled)
+        underscore-min x 62,843 ops/sec ±3.37% (81 runs sampled)
+        lodash.min is 103% faster.
+
+        `_.sortBy` with `property` name:
+        lodash.min x 159,436 ops/sec ±0.60% (84 runs sampled)
+        underscore-min x 66,486 ops/sec ±2.94% (84 runs sampled)
+        lodash.min is 145% faster.
+      </pre>
     </section>
     <a class="btn btn--secondary" href="../../index.html">На главную</a>
   </main>

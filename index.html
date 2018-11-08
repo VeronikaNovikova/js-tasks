@@ -107,10 +107,12 @@
               Функция sequence(start, step) при вызове возвращает функцию-генератор. Каждый вызов генератора возвращает
               новое число в числовой последовательности. start – стартовое число (по умолчанию 0). start – шаг приращения
               (по умолчанию 1). Пример работы:
-              <pre><code>var generator = sequence(10, 3);</code></pre>
-              <pre><code>alert(generator()); // 10</code></pre>
-              <pre><code>alert(generator()); // 13</code></pre>
-              <pre><code>alert(generator()); // 16</code></pre>
+              <pre class="highlight">
+                <code>var generator = sequence(10, 3);</code>
+                <code>alert(generator()); // 10</code>
+                <code>alert(generator()); // 13</code>
+                <code>alert(generator()); // 16</code>
+              </pre>
             </div>
           </a>
         </div>
@@ -139,8 +141,10 @@
             <div class="card__desc">
               Создайте функцию sum, которая будет возвращать сумму любого количества чисел. Вызываться функция должна вот
               так (обратите внимание на скобки):
-              <pre><code>x = sum(2)(5)(10);</code></pre>
-              <pre><code>alert(x); // выводит 17</code></pre>
+              <pre class="highlight">
+                <code>x = sum(2)(5)(10);</code>
+                <code>alert(x); // выводит 17</code>
+              </pre>
             </div>
           </a>
         </div>
@@ -171,8 +175,7 @@
           <a href="./src/Tasks_3/task-2.html" class="card__link">
             <h3 class="card__title">Задача 2</h3>
             <div class="card__desc">
-              Самостоятельно реализуйте любой алгоритм сортировки массива. Желательно, чтобы ваша функция сортировки могла принимать компаратор для сравнения элементов (как это делает стандартный метод sort()).
-              * Реализуйте функцию sort(), чтобы она сохраняла индексы разреженного массива, а не сдвигала индексы в начало.
+              Сравнение метода sort() - Vanilla JS vs Lo-Dash vs Underscore
             </div>
           </a>
         </div>
@@ -211,8 +214,10 @@
             <div class="card__desc">
               Функция принимает на вход массив или объект, подобный массиву. Функция возвращает массив, полученный из аргумента удалением триплов. Триплом будем считать элемент, которые повторяется 3 и более раз.
               Пример:
-              <pre><code>var a = f([1, 2, 1, 3, 1, 3, 1, 4]); // a = [2, 3, 4]</code></pre>
-              <pre><code>var b = f("mama ramu"); // b = [" ", "r", "u"];</code></pre>
+              <pre class="highlight">
+                <code>var a = f([1, 2, 1, 3, 1, 3, 1, 4]); // a = [2, 3, 4]</code>
+                <code>var b = f("mama ramu"); // b = [" ", "r", "u"];</code>
+              </pre>
             </div>
           </a>
         </div>

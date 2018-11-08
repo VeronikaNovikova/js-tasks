@@ -28,6 +28,15 @@ ul {
   margin: 48px auto;
   text-align: center; }
 
+pre.highlight {
+  white-space: pre-line;
+  word-wrap: normal;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  overflow: auto;
+  padding: 16px; }
+
 .grid {
   max-width: 1200px;
   margin: 0 auto;
