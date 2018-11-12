@@ -18,8 +18,11 @@
   // console.log(users);
 
   console.log("bubble: ", bubbleSort(users, "level"));
+  console.log(users);
+
   console.log("insertion: ", insertionSort(users, "name"));
-  console.log("selection: ", selectionSort(users));
+  console.log("selection: ", selectionSort(users, "name"));
+  console.log(users);
 
   function swap(items, left, right) {
     let temp = [];
@@ -38,15 +41,18 @@
   }
 
   function bubbleSort(array, fieldName) {
-    let items = JSON.parse(JSON.stringify(array));
+    let { length } = array, items = [], i;
+    while (length--) {
+      items[length] = array[length];
+    }
 
     let swapped = true;
     while (swapped) {
       swapped = false;
-      for (let i = 1; i < items.length; i++) {
-        let left = getItem(items[i - 1], fieldName),
-            right = getItem(items[i], fieldName);
-        if (left > right && left !== right) {
+      for (i = 1; i < length; i++) {
+        if (getItem(items[i - 1], fieldName) > getItem(items[i], fieldName)
+            && getItem(items[i - 1], fieldName) !== getItem(items[i], fieldName))
+        {
           swap(items, i - 1, i);
           swapped = true;
         }
@@ -56,12 +62,15 @@
   }
 
   function insertionSort(array, fieldName) {
-    let items = JSON.parse(JSON.stringify(array));
+    let { length } = array, items = [];
+    let i, j, current;
+    while (length--) {
+      items[length] = array[length];
+    }
 
-    for (let i = 1; i < items.length; i++) {
-      const current = items[i];
-      let j = i;
-
+    for (i = 1; i < length; i++) {
+      current = items[i];
+      j = i;
       while (j > 0 && getItem(items[j - 1], fieldName) > getItem(current, fieldName)) {
         items[j] = items[j - 1];
         j--;
@@ -72,11 +81,14 @@
   }
 
   function selectionSort(array, fieldName) {
-    let items = JSON.parse(JSON.stringify(array));
-
-    for (let i = 0; i < items.length - 1; i++) {
-      let indexMin = i;
-      for (let j = i + 1; j < items.length; j++) {
+    let { length } = array, items = [];
+    let i, j, indexMin;
+    while (length--) {
+      items[length] = array[length];
+    }
+    for (i = 0; i < length - 1; i++) {
+      indexMin = i;
+      for (j = i + 1; j < length; j++) {
         if (getItem(items[indexMin], fieldName) > getItem(items[j], fieldName)) {
           indexMin = j;
         }
